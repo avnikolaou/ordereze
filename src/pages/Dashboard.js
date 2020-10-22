@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
-
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 
 import BackpanelNav from '../components/BackpanelNav';
 import Copyright from '../components/Copyright';
 
+import { fetchPages } from '../actions';
+
 
 class Dashboard extends Component {
+
+    componentDidMount() {
+        const { fetchPages } = this.props;
+        fetchPages();
+    }
 
     render() {
         return (
@@ -30,6 +37,10 @@ class Dashboard extends Component {
             </div>
         )
     }
-};
+}
 
-export default Dashboard;
+const mapDispatchToProps = (dispatch) => ({
+    fetchPages: () => dispatch(fetchPages())
+})
+
+export default connect(null, mapDispatchToProps)(Dashboard);

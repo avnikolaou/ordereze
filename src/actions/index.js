@@ -22,7 +22,7 @@ export const fetchPagesFailure = () => ({
 export const fetchPages = () => async (dispatch) => {
     dispatch(fetchPagesStart());
     try {
-        const pages = await axios.get('pagesmanagement.azurewebsites.net/api/ResponsivePages');
+        const pages = await axios.get('https://pagesmanagement.azurewebsites.net/api/ResponsivePages');
         dispatch(fetchPagesSuccess(pages.data));
     } catch (e) {
         dispatch(fetchPagesFailure(e));
