@@ -39,7 +39,7 @@ class PagesTable extends Component {
                                     <TableCell>{page.description}</TableCell>
                                     <TableCell>{page.type}</TableCell>
                                     <TableCell><Checkbox checked={page.isActive} disabled={true} /></TableCell>
-                                    <TableCell>{`${page.publishedOn.split('T')[0]}  ${(page.publishedOn.split('T')[1]).split('.')[0]}`}</TableCell>
+                                    <TableCell>{`${page.publishedOn.split('T')[0]} ${(page.publishedOn.split('T')[1]).split('.')[0]}`}</TableCell>
                                     <TableCell>
                                         <Button value={page.id} variant={'contained'} color={'primary'} size={'sm'}>Edit</Button>
                                     </TableCell>

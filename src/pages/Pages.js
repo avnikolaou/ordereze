@@ -6,12 +6,13 @@ import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 
 import BackpanelNav from '../components/BackpanelNav';
 import Copyright from '../components/Copyright';
 
 import { fetchPages } from '../actions';
-import PagesTable from '../components/pages/PagesTable';
 import PagesTableContainer from '../components/pages/PagesTableContainer';
 
 
@@ -44,6 +45,10 @@ class Pages extends Component {
                             <Copyright />
                         </Box>
                     </Container>
+
+                    <Fab className={'add-icon'} color={'primary'} aria-label={'add'}>
+                        <AddIcon />
+                    </Fab>
                 </main>
 
             </div>
