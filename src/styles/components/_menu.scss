@@ -1,0 +1,41 @@
+.add-collection-container {
+    min-height: 325px;
+    padding: 25px;
+
+    .add-collection-form__header {
+        text-align: center;
+
+        h4 {
+            padding: 5px 0 10px;
+        }
+    }
+}
+
+.collections-table-container {
+    min-height: 325px;
+    padding: 25px;
+
+    .collections__header {
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 24px;
+        color: black;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    th {
+        text-align: center;
+    }
+}
+
+.paper {
+    display: flex;
+    overflow: auto;
+    flex-direction: column;
+    height: auto;
+}

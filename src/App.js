@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 
-import Dashboard from './pages/Dashboard';
+import Dashboard from './pages/Pages';
 
 function App() {
     return (

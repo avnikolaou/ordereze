@@ -1,7 +1,7 @@
 import { FETCH_PAGES_START, FETCH_PAGES_SUCCESS, FETCH_PAGES_FAILURE } from '../actions/types';
 
 const INITIAL_STATE = {
-    pages: null,
+    pages: [],
     isFetching: false,
     errorMessage: ''
 }

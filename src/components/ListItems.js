@@ -14,7 +14,7 @@ export const mainListItems = (
                 <ListItemIcon>
                     <DashboardIcon />
                 </ListItemIcon>
-                <ListItemText className={"side-menu__links"} primary="Dashboard" />
+                <ListItemText className={"side-menu__links"} primary="Pages" />
             </ListItem>
         </Link>
 
