@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 
 import Dashboard from './pages/Dashboard';
@@ -13,4 +14,4 @@ function App() {
     );
 }
 
-export default App;
+export default connect()(App);
