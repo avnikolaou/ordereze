@@ -4,27 +4,17 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import { Link } from 'react-router-dom';
 
 export const mainListItems = (
     <div>
-        <Link to={'/dashboard'}>
+        <Link to={'/'}>
             <ListItem button>
                 <ListItemIcon>
                     <DashboardIcon />
                 </ListItemIcon>
                 <ListItemText className={"side-menu__links"} primary="Dashboard" />
-            </ListItem>
-        </Link>
-
-        <Link to={'/menu'}>
-            <ListItem button>
-                <ListItemIcon>
-                    <ShoppingCartIcon />
-                </ListItemIcon>
-                <ListItemText className={"side-menu__links"} primary="Menu" />
             </ListItem>
         </Link>
 

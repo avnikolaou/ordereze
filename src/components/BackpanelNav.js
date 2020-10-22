@@ -1,5 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
+import { connect } from 'react-redux';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -12,6 +14,7 @@ import List from '@material-ui/core/List';
 import Drawer from '@material-ui/core/Drawer';
 
 import { mainListItems, secondaryListItems } from './ListItems';
+import { toggleDashboardDrawer } from '../actions';
 
 const drawerWidth = 240;
 
@@ -136,4 +139,14 @@ const BackpanelNav = ({ title, drawer, closeDrawer }) => {
     )
 }
 
-export default BackpanelNav;
+const mapStateToProps = (state) => {
+    return {
+        drawer: state.backPanel.drawer
+    }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+    closeDrawer: () => dispatch(toggleDashboardDrawer())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(BackpanelNav);
