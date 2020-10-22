@@ -15,8 +15,8 @@ export const fetchPagesSuccess = (pages) => ({
     type: FETCH_PAGES_SUCCESS, payload: pages
 });
 
-export const fetchPagesFailure = () => ({
-    type: FETCH_PAGES_FAILURE
+export const fetchPagesFailure = (errorMessage) => ({
+    type: FETCH_PAGES_FAILURE, payload: errorMessage
 });
 
 export const fetchPages = () => async (dispatch) => {
