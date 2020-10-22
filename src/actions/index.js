@@ -11,8 +11,8 @@ export const fetchPagesStart = () => ({
     type: FETCH_PAGES_START
 });
 
-export const fetchPagesSuccess = () => ({
-    type: FETCH_PAGES_SUCCESS
+export const fetchPagesSuccess = (pages) => ({
+    type: FETCH_PAGES_SUCCESS, payload: pages
 });
 
 export const fetchPagesFailure = () => ({
@@ -24,6 +24,7 @@ export const fetchPages = () => async (dispatch) => {
     try {
         const pages = await axios.get('https://pagesmanagement.azurewebsites.net/api/ResponsivePages');
         dispatch(fetchPagesSuccess(pages.data));
+        console.log(pages.data)
     } catch (e) {
         dispatch(fetchPagesFailure(e));
     }
