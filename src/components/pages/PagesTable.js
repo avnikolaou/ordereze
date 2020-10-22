@@ -5,6 +5,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 
 import Title from '../Title';
@@ -37,8 +38,8 @@ class PagesTable extends Component {
                                     <TableCell>{page.title}</TableCell>
                                     <TableCell>{page.description}</TableCell>
                                     <TableCell>{page.type}</TableCell>
-                                    <TableCell>{page.isActive ? 'Yes' : 'No'}</TableCell>
-                                    <TableCell>{`${page.publishedOn.split('T')[0]} at ${page.publishedOn.split('T')[1]}`}</TableCell>
+                                    <TableCell><Checkbox checked={page.isActive} disabled={true} /></TableCell>
+                                    <TableCell>{`${page.publishedOn.split('T')[0]}  ${(page.publishedOn.split('T')[1]).split('.')[0]}`}</TableCell>
                                     <TableCell>
                                         <Button value={page.id} variant={'contained'} color={'primary'} size={'sm'}>Edit</Button>
                                     </TableCell>
