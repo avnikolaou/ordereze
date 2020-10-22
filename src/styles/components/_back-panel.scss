@@ -1,0 +1,28 @@
+.side-menu__links {
+    color: black;
+    text-decoration: none;
+}
+
+.root-container {
+    display: flex;
+}
+
+.bar-spacer {
+    min-height: 64px;
+}
+
+.main-content {
+    flex-grow: 1;
+    height: 100vh;
+    overflow: auto;
+}
+
+.main-container {
+    padding: 32px 24px;
+}
+
+@media screen and (max-width: 576px) {
+    .modal-content {
+        margin-left: 55px;
+    }
+}
