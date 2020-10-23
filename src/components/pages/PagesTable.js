@@ -15,6 +15,16 @@ class PagesTable extends Component {
 
     handleDelete = (e) => {
         this.props.deletePage(e.currentTarget.value);
+    };
+
+    checkType = (id) => {
+        if (id === 0) {
+            return 'Menu'
+        } else if (id === 1) {
+            return 'Events'
+        } else {
+            return 'Content'
+        }
     }
 
     render() {
@@ -42,7 +52,7 @@ class PagesTable extends Component {
                                     <TableCell>{page.id}</TableCell>
                                     <TableCell>{page.title}</TableCell>
                                     <TableCell>{page.description}</TableCell>
-                                    <TableCell>{page.type}</TableCell>
+                                    <TableCell>{this.checkType(page.type)}</TableCell>
                                     <TableCell><Checkbox checked={page.isActive} disabled={true} /></TableCell>
                                     <TableCell>{`${page.publishedOn.split('T')[0]} ${(page.publishedOn.split('T')[1]).split('.')[0]}`}</TableCell>
                                     <TableCell>
