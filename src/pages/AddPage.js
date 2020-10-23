@@ -2,37 +2,29 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
+import TextField from '@material-ui/core/TextField'
 
 import BackpanelNav from '../components/BackpanelNav';
 import Copyright from '../components/Copyright';
 
-import { fetchPages } from '../actions';
-import PagesTableContainer from '../components/pages/PagesTableContainer';
-
-
-class Pages extends Component {
+class AddPage extends Component {
 
     handleClick = () => {
 
     };
 
-    componentDidMount() {
-        const { fetchPages } = this.props;
-        fetchPages();
-    }
-
     render() {
+
         return (
             <div className={'root-container'}>
                 <CssBaseline />
-                <BackpanelNav title={'Pages'}/>
+                <BackpanelNav title={'Add Page'}/>
 
                 <main className={'main-content'}>
                     <div className={'bar-spacer'} />
@@ -41,7 +33,8 @@ class Pages extends Component {
                         <Grid container spacing={3}>
                             <Grid item xs={12} md={12}>
                                 <Paper className={"paper collections-table-container"}>
-                                    <PagesTableContainer />
+                                    <div className={''}><h4>Add Brand</h4></div>
+
                                 </Paper>
                             </Grid>
                         </Grid>
@@ -50,12 +43,6 @@ class Pages extends Component {
                             <Copyright />
                         </Box>
                     </Container>
-
-                    <Link to={'/add'}>
-                        <Fab className={'add-icon'} color={'primary'} aria-label={'add'} onClick={this.handleClick}>
-                            <AddIcon />
-                        </Fab>
-                    </Link>
                 </main>
 
             </div>
@@ -63,8 +50,4 @@ class Pages extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    fetchPages: () => dispatch(fetchPages())
-})
-
-export default connect(null, mapDispatchToProps)(Pages);
+export default connect()(AddPage);
