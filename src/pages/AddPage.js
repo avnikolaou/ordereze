@@ -28,13 +28,21 @@ class AddPage extends Component {
                     <div className={'bar-spacer'} />
                     <Container maxWidth="lg" className={'main-container'}>
 
-                        <Grid container spacing={3}>
-                            <Grid item xs={12} md={12}>
+                        <Grid container spacing={0}>
+                            <Grid item xs={12} md={3}>
+
+                            </Grid>
+
+                            <Grid item xs={12} md={6}>
                                 <Paper className={"paper collections-table-container"}>
                                     <div className={"collections__header"}><h4>Add Page</h4></div>
                                     <AddPageComponent />
                                 </Paper>
                             </Grid>
+                        </Grid>
+
+                        <Grid item xs={12} md={3}>
+                            
                         </Grid>
 
                         <Box pt={4}>
