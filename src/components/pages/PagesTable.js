@@ -9,8 +9,13 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 
 import Title from '../Title';
+import { deletePage } from '../../actions';
 
 class PagesTable extends Component {
+
+    handleDelete = (e) => {
+        this.props.deletePage(e.currentTarget.value);
+    }
 
     render() {
         const { pages } = this.props;
@@ -44,7 +49,7 @@ class PagesTable extends Component {
                                         <Button value={page.id} variant={'contained'} color={'primary'} size={'small'}>Edit</Button>
                                     </TableCell>
                                     <TableCell>
-                                        <Button value={page.id} variant={'contained'} color={'secondary'} size={'small'} >Delete</Button>
+                                        <Button value={page.id} variant={'contained'} color={'secondary'} size={'small'} onClick={this.handleDelete} >Delete</Button>
                                     </TableCell>
                                 </TableRow>
                             ))}
@@ -63,7 +68,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-
+    deletePage: (deleteId) => dispatch(deletePage(deleteId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PagesTable);

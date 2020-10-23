@@ -37,3 +37,16 @@ export const createPage = (values, history) => async dispatch => {
         console.log(e);
     }
 };
+
+// Delete page
+export const deletePage = (id) => async (dispatch) => {
+    try {
+        const res = await axios.delete(`https://pagesmanagement.azurewebsites.net/api/ResponsivePages/${id}`);
+        if (res.status === 200) {
+            const pages = await axios.get('https://pagesmanagement.azurewebsites.net/api/ResponsivePages');
+            dispatch(fetchPages(pages.data));
+        }
+    } catch (e) {
+        console.log(e);
+    }
+};
