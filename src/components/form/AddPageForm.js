@@ -31,7 +31,7 @@ class AddPageForm extends Component  {
 
                     <Field key={'type'} component={DropdownFormField} label={'Type'} name={'type'}>
                         <option></option>
-                        { mySelectOptions.map(option => <option value={option.value}>{option.option}</option>) }
+                        { mySelectOptions.map((option,index) => <option key={`option-${index}`} value={option.value}>{option.option}</option>) }
                     </Field>
 
 
