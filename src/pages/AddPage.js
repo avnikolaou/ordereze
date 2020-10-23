@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
-import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField'
 
 import BackpanelNav from '../components/BackpanelNav';
 import Copyright from '../components/Copyright';
+import AddPageComponent from '../components/form/AddPageComponent';
 
 class AddPage extends Component {
 
@@ -34,7 +32,7 @@ class AddPage extends Component {
                             <Grid item xs={12} md={12}>
                                 <Paper className={"paper collections-table-container"}>
                                     <div className={''}><h4>Add Page</h4></div>
-
+                                    <AddPageComponent />
                                 </Paper>
                             </Grid>
                         </Grid>
