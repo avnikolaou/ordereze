@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default ({ input, label, meta: { touched, error } }) => (
-    <div>
+    <div className={'form-group'}>
         <label>{label}</label>
         <div>
             <input type={'checkbox'} {...input}/>

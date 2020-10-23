@@ -25,7 +25,7 @@ class AddPageForm extends Component  {
 
                     <Field key={'isActive'} component={CheckBoxFormField} label={'Is the page active?'} name={'isActive'} />
 
-                    <Field key={'type'} component={DropdownFormField} label={'Type'} name={'type'}>
+                    <Field key={'type'} component={DropdownFormField} label={'Type (Choose one...)'} name={'type'}>
                         <option></option>
                         { typeOptions.map((option,index) => <option key={`option-${index}`} value={option.value}>{option.option}</option>) }
                     </Field>
