@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
@@ -18,6 +19,9 @@ import PagesTableContainer from '../components/pages/PagesTableContainer';
 
 class Pages extends Component {
 
+    handleClick = () => {
+
+    };
     componentDidMount() {
         const { fetchPages } = this.props;
         fetchPages();
@@ -46,9 +50,11 @@ class Pages extends Component {
                         </Box>
                     </Container>
 
-                    <Fab className={'add-icon'} color={'primary'} aria-label={'add'}>
-                        <AddIcon />
-                    </Fab>
+                    <Link to={'/addPage'}>
+                        <Fab className={'add-icon'} color={'primary'} aria-label={'add'} onClick={this.handleClick}>
+                            <AddIcon />
+                        </Fab>
+                    </Link>
                 </main>
 
             </div>

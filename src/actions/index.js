@@ -24,7 +24,6 @@ export const fetchPages = () => async (dispatch) => {
     try {
         const pages = await axios.get('https://pagesmanagement.azurewebsites.net/api/ResponsivePages');
         dispatch(fetchPagesSuccess(pages.data));
-        console.log(pages.data)
     } catch (e) {
         dispatch(fetchPagesFailure(e));
     }

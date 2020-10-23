@@ -41,10 +41,10 @@ class PagesTable extends Component {
                                     <TableCell><Checkbox checked={page.isActive} disabled={true} /></TableCell>
                                     <TableCell>{`${page.publishedOn.split('T')[0]} ${(page.publishedOn.split('T')[1]).split('.')[0]}`}</TableCell>
                                     <TableCell>
-                                        <Button value={page.id} variant={'contained'} color={'primary'} size={'sm'}>Edit</Button>
+                                        <Button value={page.id} variant={'contained'} color={'primary'} size={'small'}>Edit</Button>
                                     </TableCell>
                                     <TableCell>
-                                        <Button value={page.id} variant={'contained'} color={'secondary'} size={'sm'} >Delete</Button>
+                                        <Button value={page.id} variant={'contained'} color={'secondary'} size={'small'} >Delete</Button>
                                     </TableCell>
                                 </TableRow>
                             ))}
