@@ -31,7 +31,7 @@ class AddPage extends Component {
                         <Grid container spacing={3}>
                             <Grid item xs={12} md={12}>
                                 <Paper className={"paper collections-table-container"}>
-                                    <div className={''}><h4>Add Page</h4></div>
+                                    <div className={"collections__header"}><h4>Add Page</h4></div>
                                     <AddPageComponent />
                                 </Paper>
                             </Grid>
