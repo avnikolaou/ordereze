@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default ({ input, label, meta: { touched, error }, children }) => (
-    <div>
+    <div className={'form-group'}>
         <label>{label}</label>
         <div>
             <select {...input}>
