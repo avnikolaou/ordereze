@@ -19,10 +19,6 @@ import PagesTableContainer from '../components/pages/PagesTableContainer';
 
 class Pages extends Component {
 
-    handleClick = () => {
-
-    };
-
     componentDidMount() {
         const { fetchPages } = this.props;
         fetchPages();
@@ -52,7 +48,7 @@ class Pages extends Component {
                     </Container>
 
                     <Link to={'/add'}>
-                        <Fab className={'add-icon'} color={'primary'} aria-label={'add'} onClick={this.handleClick}>
+                        <Fab className={'add-icon'} color={'primary'} aria-label={'add'}>
                             <AddIcon />
                         </Fab>
                     </Link>
