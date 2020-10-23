@@ -28,3 +28,12 @@ export const fetchPages = () => async (dispatch) => {
         dispatch(fetchPagesFailure(e));
     }
 }
+
+// Create page
+export const createPage = (values, history) => async dispatch => {
+    try {
+        await axios.post('https://pagesmanagement.azurewebsites.net/api/ResponsivePages', values);
+    } catch (e) {
+        console.log(e);
+    }
+};

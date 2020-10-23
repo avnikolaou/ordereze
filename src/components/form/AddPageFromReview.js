@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import * as actions from '../../actions';
 import { withRouter } from 'react-router-dom';
+import { createPage } from '../../actions';
 
-const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
+const SurveyFormReview = ({ onCancel, formValues, createPage, history }) => {
     const checkType = (id) => {
         if (id === '0') {
             return 'Menu'
@@ -12,6 +12,19 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
         } else {
             return 'Content'
         }
+    }
+
+    const handleSubmit = async (data) => {
+
+        let date = new Date();
+
+        const dataToSend = {
+            ...data,
+            "publishedOn": date
+        }
+
+        await createPage(dataToSend);
+        history.push('/')
     }
 
     return (
@@ -38,7 +51,7 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
                 <div>{checkType(formValues.type)}</div>
             </div>
 
-            <button className={'btn btn-info float-right my-3'} onClick={() => submitSurvey(formValues, history)}>Create Page</button>
+            <button className={'btn btn-info float-right my-3'} onClick={() => handleSubmit(formValues)}>Create Page</button>
             <button className={'btn btn-warning float-right mx-2 my-3'} onClick={ onCancel }>Back</button>
         </div>
     );
@@ -48,4 +61,8 @@ function mapStateToProps(state) {
     return { formValues:  state.form.AddPageForm.values };
 }
 
-export default connect(mapStateToProps, actions)(withRouter(SurveyFormReview));
+const mapDispatchToProps = (dispatch) => ({
+    createPage: (page) => dispatch(createPage(page))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SurveyFormReview));
