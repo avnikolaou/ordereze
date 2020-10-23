@@ -7,17 +7,13 @@ import { Field, reduxForm } from 'redux-form';
 
 import FormField from './InputFormField';
 import fields from './fields';
+import typeOptions from './typeOptions';
 import CheckBoxFormField from './CheckBoxFormField';
 import DropdownFormField from './DropdownFormField';
 
 class AddPageForm extends Component  {
 
     render() {
-        const mySelectOptions = [
-            { value: 0, option: 'Menu' },
-            { value: 1, option: 'Events' },
-            { value: 2, option: 'Content' }
-        ]
 
         return (
             <div className={"my-5"}>
@@ -31,7 +27,7 @@ class AddPageForm extends Component  {
 
                     <Field key={'type'} component={DropdownFormField} label={'Type'} name={'type'}>
                         <option></option>
-                        { mySelectOptions.map((option,index) => <option key={`option-${index}`} value={option.value}>{option.option}</option>) }
+                        { typeOptions.map((option,index) => <option key={`option-${index}`} value={option.value}>{option.option}</option>) }
                     </Field>
 
 
