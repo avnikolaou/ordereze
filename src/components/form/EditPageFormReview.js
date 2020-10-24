@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom';
-import { createPage } from '../../actions';
+import { editPage } from '../../actions';
 
-const EditPageFormReview = ({ onCancel, formValues, createPage, history }) => {
+const EditPageFormReview = ({ onCancel, formValues, editPage, history }) => {
     const checkType = (id) => {
         if (id === '0') {
             return 'Menu'
@@ -14,7 +14,7 @@ const EditPageFormReview = ({ onCancel, formValues, createPage, history }) => {
         }
     }
 
-    const handleSubmit = async (data) => {
+    const handleSubmit = async (data, id) => {
 
         let date = new Date();
 
@@ -22,8 +22,8 @@ const EditPageFormReview = ({ onCancel, formValues, createPage, history }) => {
             ...data,
             "publishedOn": date
         }
-
-        await createPage(dataToSend);
+        
+        await editPage(id, dataToSend);
         history.push('/')
     }
 
@@ -51,7 +51,7 @@ const EditPageFormReview = ({ onCancel, formValues, createPage, history }) => {
                 <div>{checkType(formValues.type)}</div>
             </div>
 
-            <button className={'btn btn-info float-right my-3'} onClick={() => handleSubmit(formValues)}>Create Page</button>
+            <button className={'btn btn-info float-right my-3'} onClick={() => handleSubmit(formValues, formValues.id)}>Edit Page</button>
             <button className={'btn btn-warning float-right mx-2 my-3'} onClick={ onCancel }>Back</button>
         </div>
     );
@@ -62,7 +62,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    createPage: (page) => dispatch(createPage(page))
+    editPage: (id, data) => dispatch(editPage(id, data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(EditPageFormReview));

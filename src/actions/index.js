@@ -1,8 +1,11 @@
 import axios from 'axios';
 import {
+    EDIT_PAGE_START,
+    EDIT_PAGE_SUCCESS,
+    EDIT_PAGE_FAILURE,
     FETCH_PAGES_FAILURE,
     FETCH_PAGES_START,
-    FETCH_PAGES_SUCCESS, GET_EDIT_PAGE,
+    FETCH_PAGES_SUCCESS,
     SET_EDIT_PAGE,
     TOGGLE_DASHBOARD_DRAWER
 } from './types';
@@ -64,5 +67,28 @@ export const setEditPage = (id) => async (dispatch) => {
         dispatch({ type: SET_EDIT_PAGE, payload: res.data})
     } catch (e) {
         console.log(e);
+    }
+}
+
+// Edit Page
+export const editPageStart = () => ({
+    type: EDIT_PAGE_START
+});
+
+export const editPageSuccess = (page) => ({
+    type: EDIT_PAGE_SUCCESS, payload: page
+});
+
+export const editPageFailure = (errorMessage) => ({
+    type: EDIT_PAGE_FAILURE, payload: errorMessage
+});
+
+export const editPage = (id, data) => async (dispatch) => {
+    dispatch(editPageStart());
+    try {
+        const page = await axios.put(`https://pagesmanagement.azurewebsites.net/api/ResponsivePages/${id}`, data);
+        dispatch(editPageSuccess(page.data));
+    } catch (e) {
+        dispatch(editPageFailure(e));
     }
 }
