@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -9,12 +11,18 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
 
 import Title from '../Title';
-import { deletePage } from '../../actions';
+import { deletePage, setEditPage } from '../../actions';
+
 
 class PagesTable extends Component {
 
     handleDelete = (e) => {
         this.props.deletePage(e.currentTarget.value);
+    };
+
+    handleEdit = async (e) => {
+        await this.props.setEditPage(e.currentTarget.value);
+        this.props.history.push('/edit');
     };
 
     checkType = (id) => {
@@ -56,7 +64,7 @@ class PagesTable extends Component {
                                     <TableCell><Checkbox checked={page.isActive} disabled={true} /></TableCell>
                                     <TableCell>{`${page.publishedOn.split('T')[0]} ${(page.publishedOn.split('T')[1]).split('.')[0]}`}</TableCell>
                                     <TableCell>
-                                        <Button value={page.id} variant={'contained'} color={'primary'} size={'small'}>Edit</Button>
+                                        <Button value={page.id} variant={'contained'} color={'primary'} size={'small'} onClick={this.handleEdit}>Edit</Button>
                                     </TableCell>
                                     <TableCell>
                                         <Button value={page.id} variant={'contained'} color={'secondary'} size={'small'} onClick={this.handleDelete} >Delete</Button>
@@ -78,7 +86,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    deletePage: (deleteId) => dispatch(deletePage(deleteId))
+    deletePage: (deleteId) => dispatch(deletePage(deleteId)),
+    setEditPage: (page) => dispatch(setEditPage(page))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PagesTable);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(PagesTable));

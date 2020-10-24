@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom';
 import { createPage } from '../../actions';
 
-const PageFormReview = ({ onCancel, formValues, createPage, history }) => {
+const EditPageFormReview = ({ onCancel, formValues, createPage, history }) => {
     const checkType = (id) => {
         if (id === '0') {
             return 'Menu'
@@ -58,11 +58,11 @@ const PageFormReview = ({ onCancel, formValues, createPage, history }) => {
 };
 
 function mapStateToProps(state) {
-    return { formValues:  state.form.AddPageForm.values };
+    return { formValues:  state.form.EditPageForm.values };
 }
 
 const mapDispatchToProps = (dispatch) => ({
     createPage: (page) => dispatch(createPage(page))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(PageFormReview));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(EditPageFormReview));

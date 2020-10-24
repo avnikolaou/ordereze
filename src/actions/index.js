@@ -1,5 +1,11 @@
 import axios from 'axios';
-import { FETCH_PAGES_FAILURE, FETCH_PAGES_START, FETCH_PAGES_SUCCESS, TOGGLE_DASHBOARD_DRAWER } from './types';
+import {
+    FETCH_PAGES_FAILURE,
+    FETCH_PAGES_START,
+    FETCH_PAGES_SUCCESS, GET_EDIT_PAGE,
+    SET_EDIT_PAGE,
+    TOGGLE_DASHBOARD_DRAWER
+} from './types';
 
 export const toggleDashboardDrawer = () => ({
     type: TOGGLE_DASHBOARD_DRAWER
@@ -50,3 +56,13 @@ export const deletePage = (id) => async (dispatch) => {
         console.log(e);
     }
 };
+
+// Set Edit Page
+export const setEditPage = (id) => async (dispatch) => {
+    try {
+        const res = await axios.get(`https://pagesmanagement.azurewebsites.net/api/ResponsivePages/${id}`);
+        dispatch({ type: SET_EDIT_PAGE, payload: res.data})
+    } catch (e) {
+        console.log(e);
+    }
+}

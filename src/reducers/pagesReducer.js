@@ -1,9 +1,10 @@
-import { FETCH_PAGES_START, FETCH_PAGES_SUCCESS, FETCH_PAGES_FAILURE } from '../actions/types';
+import {FETCH_PAGES_START, FETCH_PAGES_SUCCESS, FETCH_PAGES_FAILURE, SET_EDIT_PAGE} from '../actions/types';
 
 const INITIAL_STATE = {
     pages: [],
     isFetching: false,
-    errorMessage: ''
+    errorMessage: '',
+    editPage: []
 }
 
 const pagesReducer = (state = INITIAL_STATE, action) => {
@@ -24,6 +25,11 @@ const pagesReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 isFetching: false,
                 errorMessage: action.payload
+            }
+        case SET_EDIT_PAGE:
+            return {
+                ...state,
+                editPage: action.payload
             }
         default:
             return state

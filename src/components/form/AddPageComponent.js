@@ -4,13 +4,13 @@ import AddPageForm from './AddPageForm';
 import AddPageFromReview from './AddPageFromReview';
 
 class AddPageComponent extends Component {
-    state = { showFormReview: false };
+    state = { showAddPageFormReview: false };
 
     renderContent() {
-        if (this.state.showFormReview) {
-            return <AddPageFromReview onCancel ={() => this.setState({ showFormReview: false })}/>;
+        if (this.state.showAddPageFormReview) {
+            return <AddPageFromReview onCancel ={() => this.setState({ showAddPageFormReview: false })}/>;
         }
-        return <AddPageForm onFormSubmit={() => this.setState({ showFormReview: true })} />;
+        return <AddPageForm onFormSubmit={() => this.setState({ showAddPageFormReview: true })} />;
     }
 
     render() {
