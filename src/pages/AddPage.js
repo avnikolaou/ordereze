@@ -28,7 +28,7 @@ const AddPage = () => ({
 
                             <Grid item xs={12} md={6}>
                                 <Paper className={"paper collections-table-container"}>
-                                    <div className={"collections__header"}><h4>Add Page</h4></div>
+                                    <div className={"collections__header"}><h3>Add Page</h3></div>
                                     <AddPageComponent />
                                 </Paper>
                             </Grid>

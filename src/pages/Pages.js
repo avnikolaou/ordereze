@@ -42,9 +42,6 @@ class Pages extends Component {
                             </Grid>
                         </Grid>
 
-                        <Box pt={4}>
-                            <Copyright />
-                        </Box>
                     </Container>
 
                     <Link to={'/add'}>

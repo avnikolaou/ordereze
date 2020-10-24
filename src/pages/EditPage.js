@@ -22,10 +22,19 @@ const EditPages = () => ({
                     <Container maxWidth={'lg'} className={'main-container'}>
 
                         <Grid container spacing={3}>
-                            <Grid item xs={12} md={12}>
+                            <Grid item xs={12} md={3}>
+
+                            </Grid>
+
+                            <Grid item xs={12} md={6}>
                                 <Paper className={'paper collections-table-container'}>
+                                    <div className={"collections__header"}><h3>Edit Page</h3></div>
                                     <EditPageComponent />
                                 </Paper>
+                            </Grid>
+
+                            <Grid item xs={12} md={3}>
+
                             </Grid>
                         </Grid>
                     </Container>
