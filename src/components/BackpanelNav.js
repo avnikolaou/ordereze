@@ -13,7 +13,7 @@ import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
 import Drawer from '@material-ui/core/Drawer';
 
-import { mainListItems, secondaryListItems } from './ListItems';
+import { mainListItems } from './ListItems';
 import { toggleDashboardDrawer } from '../actions';
 
 const drawerWidth = 240;
@@ -133,7 +133,6 @@ const BackpanelNav = ({ title, drawer, closeDrawer }) => {
                 <Divider/>
                 <List>{mainListItems}</List>
                 <Divider />
-                <List>{secondaryListItems}</List>
             </Drawer>
         </div>
     )

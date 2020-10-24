@@ -1,21 +1,14 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 
 import BackpanelNav from '../components/BackpanelNav';
-import Copyright from '../components/Copyright';
-import AddPageComponent from '../components/form/AddPageComponent';
+import AddPageComponent from '../components/form/AddForm/AddPageComponent';
 
-class AddPage extends Component {
-
-    handleClick = () => {
-
-    };
+const AddPage = () => ({
 
     render() {
 
@@ -42,18 +35,15 @@ class AddPage extends Component {
                         </Grid>
 
                         <Grid item xs={12} md={3}>
-                            
+
                         </Grid>
 
-                        <Box pt={4}>
-                            <Copyright />
-                        </Box>
                     </Container>
                 </main>
 
             </div>
         )
     }
-}
+})
 
-export default connect()(AddPage);
+export default AddPage;

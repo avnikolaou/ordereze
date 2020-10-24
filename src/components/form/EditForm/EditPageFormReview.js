@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom';
-import { editPage } from '../../actions';
+import { editPage } from '../../../actions';
 
 const EditPageFormReview = ({ onCancel, formValues, editPage, history }) => {
     const checkType = (id) => {
@@ -22,7 +22,7 @@ const EditPageFormReview = ({ onCancel, formValues, editPage, history }) => {
             ...data,
             "publishedOn": date
         }
-        
+
         await editPage(id, dataToSend);
         history.push('/')
     }

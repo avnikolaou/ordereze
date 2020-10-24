@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom';
-import { createPage } from '../../actions';
+import { createPage } from '../../../actions';
 
 const PageFormReview = ({ onCancel, formValues, createPage, history }) => {
     const checkType = (id) => {

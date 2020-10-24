@@ -1,25 +1,26 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import 'react-widgets/lib/scss/react-widgets.scss';
 import { Field, reduxForm } from 'redux-form';
 
-import FormField from './InputFormField';
-import fields from './fields';
-import typeOptions from './typeOptions';
-import CheckBoxFormField from './CheckBoxFormField';
-import DropdownFormField from './DropdownFormField';
+import FormField from '../InputFormField';
+import fields from '../fields';
+import typeOptions from '../typeOptions';
+import CheckBoxFormField from '../CheckBoxFormField';
+import DropdownFormField from '../DropdownFormField';
 
-class AddPageForm extends Component  {
+class EditPageForm extends Component  {
 
     render() {
 
         return (
             <div className={"my-5"}>
-                <form onSubmit={this.props.handleSubmit(this.props.onFormSubmit)}>
+                <form onSubmit={this.props.handleSubmit(this.props.onEditFormSubmit)}>
 
-                    <Field key={'title'} component={FormField} text={'text'} label={'Title'} name={'title'}/>
+                    <Field key={'title'} component={FormField} text={'text'} label={'Title'} name={'title'} />
 
                     <Field key={'description'} component={FormField} text={'text'} label={'Description'} name={'description'}/>
 
@@ -53,4 +54,19 @@ const validate = (values) => {
     return errors;
 }
 
-export default reduxForm({ validate, form: 'AddPageForm', destroyOnUnmount: false})(AddPageForm)
+function mapStateToProps(state) {
+    return {
+        initialValues: state.pages.editPage
+    };
+}
+
+const mapDispatchToProps = (dispatch) => ({
+
+});
+
+EditPageForm = reduxForm({
+    validate,
+    form: 'EditPageForm',
+})(EditPageForm)
+
+export default EditPageForm = connect(mapStateToProps, mapDispatchToProps)(EditPageForm)

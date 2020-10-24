@@ -1,7 +1,7 @@
 import { TOGGLE_DASHBOARD_DRAWER } from '../actions/types';
 
 const INITIAL_STATE = {
-    drawer: false
+    drawer: true
 }
 
 const backPanelReducer = (state = INITIAL_STATE, action) => {
