@@ -16,7 +16,7 @@ class AddPageForm extends Component  {
     render() {
 
         return (
-            <div className={"my-5"}>
+            <div className={"my-2"}>
                 <form onSubmit={this.props.handleSubmit(this.props.onFormSubmit)}>
 
                     <Field key={'title'} component={FormField} text={'text'} label={'Title'} name={'title'}/>
