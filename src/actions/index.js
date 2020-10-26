@@ -68,6 +68,7 @@ export const setEditPage = (id) => async (dispatch) => {
         const res = await axios.get(`https://pagesmanagement.azurewebsites.net/api/ResponsivePages/${id}`);
         if (res.status === 200) {
             dispatch({ type: SET_EDIT_PAGE, payload: res.data})
+            return res.status;
         }
     } catch (e) {
         dispatch(toggleErrorModal());
