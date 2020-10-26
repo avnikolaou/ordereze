@@ -67,6 +67,7 @@ const mapDispatchToProps = (dispatch) => ({
 EditPageForm = reduxForm({
     validate,
     form: 'EditPageForm',
+    destroyOnUnmount: false
 })(EditPageForm)
 
 export default EditPageForm = connect(mapStateToProps, mapDispatchToProps)(EditPageForm)

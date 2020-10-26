@@ -13,6 +13,7 @@ import BackpanelNav from '../components/BackpanelNav';
 
 import { fetchPages } from '../actions';
 import PagesTableContainer from '../components/pages/PagesTableContainer';
+import ErrorModal from '../components/modals/ErrorModal';
 
 
 class Pages extends Component {
@@ -48,6 +49,8 @@ class Pages extends Component {
                         </Fab>
                     </Link>
                 </main>
+
+                <ErrorModal />
 
             </div>
         )

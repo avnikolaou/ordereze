@@ -9,3 +9,5 @@ export const SET_EDIT_PAGE = 'set_edit_page';
 export const EDIT_PAGE_START = 'edit_page_start';
 export const EDIT_PAGE_SUCCESS = 'edit_page_sucess';
 export const EDIT_PAGE_FAILURE = 'edit_page_failure';
+
+export const TOGGLE_ERROR_MODAL = 'toggle_error_modal';

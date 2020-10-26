@@ -7,7 +7,8 @@ import {
     FETCH_PAGES_START,
     FETCH_PAGES_SUCCESS,
     SET_EDIT_PAGE,
-    TOGGLE_DASHBOARD_DRAWER
+    TOGGLE_DASHBOARD_DRAWER,
+    TOGGLE_ERROR_MODAL
 } from './types';
 
 export const toggleDashboardDrawer = () => ({
@@ -39,11 +40,11 @@ export const fetchPages = () => async (dispatch) => {
 }
 
 // Create page
-export const createPage = (values, history) => async dispatch => {
+export const createPage = (values) => async dispatch => {
     try {
         await axios.post('https://pagesmanagement.azurewebsites.net/api/ResponsivePages', values);
     } catch (e) {
-        console.log(e);
+        dispatch(toggleErrorModal());
     }
 };
 
@@ -56,7 +57,7 @@ export const deletePage = (id) => async (dispatch) => {
             dispatch(fetchPages(pages.data));
         }
     } catch (e) {
-        console.log(e);
+        dispatch(toggleErrorModal());
     }
 };
 
@@ -66,7 +67,7 @@ export const setEditPage = (id) => async (dispatch) => {
         const res = await axios.get(`https://pagesmanagement.azurewebsites.net/api/ResponsivePages/${id}`);
         dispatch({ type: SET_EDIT_PAGE, payload: res.data})
     } catch (e) {
-        console.log(e);
+
     }
 }
 
@@ -83,12 +84,18 @@ export const editPageFailure = (errorMessage) => ({
     type: EDIT_PAGE_FAILURE, payload: errorMessage
 });
 
-export const editPage = (id, data) => async (dispatch) => {
+export const editPage = (data, id) => async (dispatch) => {
     dispatch(editPageStart());
     try {
-        const page = await axios.put(`https://pagesmanagement.azurewebsites.net/api/ResponsivePages/${id}`, data);
-        dispatch(editPageSuccess(page.data));
+        const res = await axios.put(`https://pagesmanagement.azurewebsites.net/api/ResponsivePage/${id}`, data);
+        if (res.status === 200) {
+            dispatch(editPageSuccess(res.data));
+        }
     } catch (e) {
-        dispatch(editPageFailure(e));
+        dispatch(toggleErrorModal());
     }
 }
+
+export const toggleErrorModal = () => ({
+    type: TOGGLE_ERROR_MODAL
+});

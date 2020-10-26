@@ -23,7 +23,7 @@ const EditPageFormReview = ({ onCancel, formValues, editPage, history }) => {
             "publishedOn": date
         }
 
-        await editPage(id, dataToSend);
+        await editPage(dataToSend, id);
         history.push('/')
     }
 
@@ -62,7 +62,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    editPage: (id, data) => dispatch(editPage(id, data))
+    editPage: (data, id) => dispatch(editPage(data, id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(EditPageFormReview));
