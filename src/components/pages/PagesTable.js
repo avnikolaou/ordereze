@@ -21,8 +21,10 @@ class PagesTable extends Component {
     };
 
     handleEdit = async (e) => {
-        await this.props.setEditPage(e.currentTarget.value);
-        this.props.history.push('/edit');
+        const res = await this.props.setEditPage(e.currentTarget.value);
+        if (res === 200) {
+            this.props.history.push('/edit');
+        }
     };
 
     checkType = (id) => {

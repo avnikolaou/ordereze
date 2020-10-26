@@ -66,9 +66,11 @@ export const deletePage = (id) => async (dispatch) => {
 export const setEditPage = (id) => async (dispatch) => {
     try {
         const res = await axios.get(`https://pagesmanagement.azurewebsites.net/api/ResponsivePages/${id}`);
-        dispatch({ type: SET_EDIT_PAGE, payload: res.data})
+        if (res.status === 200) {
+            dispatch({ type: SET_EDIT_PAGE, payload: res.data})
+        }
     } catch (e) {
-
+        dispatch(toggleErrorModal());
     }
 }
 
