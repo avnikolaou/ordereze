@@ -53,4 +53,4 @@ const validate = (values) => {
     return errors;
 }
 
-export default reduxForm({ validate, form: 'AddPageForm', destroyOnUnmount: false})(AddPageForm)
+export default reduxForm({ validate, form: 'AddPageForm', destroyOnUnmount: false })(AddPageForm)

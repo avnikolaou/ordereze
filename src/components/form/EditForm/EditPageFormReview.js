@@ -51,7 +51,7 @@ const EditPageFormReview = ({ onCancel, formValues, editPage, history }) => {
                 <div>{checkType(formValues.type)}</div>
             </div>
 
-            <button className={'btn btn-info float-right my-3'} onClick={() => handleSubmit(formValues, formValues.id)}>Edit Page</button>
+            <button className={'btn btn-primary float-right my-3'} onClick={() => handleSubmit(formValues, formValues.id)}>Edit Page</button>
             <button className={'btn btn-warning float-right mx-2 my-3'} onClick={ onCancel }>Back</button>
         </div>
     );

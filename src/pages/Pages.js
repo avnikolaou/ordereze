@@ -4,14 +4,12 @@ import { Link } from 'react-router-dom';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 
 import BackpanelNav from '../components/BackpanelNav';
-import Copyright from '../components/Copyright';
 
 import { fetchPages } from '../actions';
 import PagesTableContainer from '../components/pages/PagesTableContainer';
