@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
@@ -8,7 +8,7 @@ import Paper from '@material-ui/core/Paper';
 import BackpanelNav from '../components/BackpanelNav';
 import EditPageComponent from '../components/form/EditForm/EditPageComponent';
 
-const EditPages = () => ({
+class EditPage extends Component {
 
     render() {
 
@@ -43,6 +43,6 @@ const EditPages = () => ({
             </div>
         )
     }
-})
+}
 
-export default EditPages;
+export default EditPage;

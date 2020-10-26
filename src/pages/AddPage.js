@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
@@ -8,7 +8,7 @@ import Paper from '@material-ui/core/Paper';
 import BackpanelNav from '../components/BackpanelNav';
 import AddPageComponent from '../components/form/AddForm/AddPageComponent';
 
-const AddPage = () => ({
+class AddPage extends Component {
 
     render() {
 
@@ -44,6 +44,6 @@ const AddPage = () => ({
             </div>
         )
     }
-})
+}
 
 export default AddPage;
