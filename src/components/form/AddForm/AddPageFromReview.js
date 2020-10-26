@@ -23,8 +23,11 @@ const PageFormReview = ({ onCancel, formValues, createPage, history }) => {
             "publishedOn": date
         }
 
-        await createPage(dataToSend);
-        history.push('/')
+        const res = await createPage(dataToSend);
+        if (res === 201) {
+            history.push('/')
+        }
+
     }
 
     return (

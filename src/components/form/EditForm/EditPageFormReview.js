@@ -23,8 +23,10 @@ const EditPageFormReview = ({ onCancel, formValues, editPage, history }) => {
             "publishedOn": date
         }
 
-        await editPage(dataToSend, id);
-        history.push('/')
+        const res = await editPage(dataToSend, id);
+        if (res === 200) {
+            history.push('/')
+        }
     }
 
     return (

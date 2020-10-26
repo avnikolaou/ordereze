@@ -42,7 +42,8 @@ export const fetchPages = () => async (dispatch) => {
 // Create page
 export const createPage = (values) => async dispatch => {
     try {
-        await axios.post('https://pagesmanagement.azurewebsites.net/api/ResponsivePages', values);
+        const res = await axios.post('https://pagesmanagement.azurewebsites.net/api/ResponsivePages', values);
+        return res.status;
     } catch (e) {
         dispatch(toggleErrorModal());
     }
@@ -87,9 +88,10 @@ export const editPageFailure = (errorMessage) => ({
 export const editPage = (data, id) => async (dispatch) => {
     dispatch(editPageStart());
     try {
-        const res = await axios.put(`https://pagesmanagement.azurewebsites.net/api/ResponsivePage/${id}`, data);
+        const res = await axios.put(`https://pagesmanagement.azurewebsites.net/api/ResponsivePages/${id}`, data);
         if (res.status === 200) {
             dispatch(editPageSuccess(res.data));
+            return res.status;
         }
     } catch (e) {
         dispatch(toggleErrorModal());
