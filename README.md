@@ -9,8 +9,8 @@ Create-react-app (v3.4.4) was used for a basic structure of the application. The
 The material-ui framework was choosen to achive the best result regarding the dashboard as well as the table component
 that displays the available Pages created by users. Regarding the forms for the 'create' and 'update' functionality, redux-forms
 was used. The forms where styled with bootstrap. The soul purpose of this was to demostrate the ability to handle both
-the material-ui components and it's grid system, and the classes that come with bootstrap. Calls to the API use the axios
-library.
+the material-ui components and it's grid system, and the classes and components that come with bootstrap. Calls to the
+API use the axios library.
 
 ### Instructions
 
@@ -18,3 +18,7 @@ library.
 * Navigate to the root of the project
 * Run `npm install` to install all the required libraries.
 * Run `npm run start` to start the development server. The project is now available localhost:3000
+
+
+I am pleased to answer any additional questions you may have. Thank you for taking the time to go over my application. 
+Looking forward to hearing from you.
