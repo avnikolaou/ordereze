@@ -29,7 +29,7 @@ const EditPageFormReview = ({ onCancel, formValues, editPage, history }) => {
 
     return (
         <div className={'my-2'}>
-            <h4 className={'text-center'}>Please confirm your entries</h4>
+            <h4 className={'text-center preview-header'}>Please confirm your entries</h4>
 
             <div key={'title'} className={'my-3'}>
                 <label className={'text-muted font-italic preview-label'}>Title</label>
